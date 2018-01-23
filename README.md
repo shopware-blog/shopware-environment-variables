@@ -34,7 +34,7 @@ You have to add the following lines to your config.php:
 With this addition our environment variables are available as parameter in the %shopware.custom% array. 
 
 # Plugin
-In the last step we can install the ShopwareEnvironmentVariables plugin and extend our mapping in: [Reader](https://github.com/teiling88/shopware-environment-variables/blob/master/custom/plugins/ShopwareEnvironmentVariables/Reader.php#L35)
+In the last step we can install the ShopwareEnvironmentVariables plugin and extend our mapping in: [Reader](https://github.com/teiling88/shopware-environment-variables/blob/master/Reader.php#L35)
 
 # Conclusion
 
