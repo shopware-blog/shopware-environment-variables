@@ -15,12 +15,16 @@ class Reader implements ConfigReader
     /**
      * @var array
      */
-    private $customConfig;
+    private $customEnvironmentVariables;
 
-    public function __construct(ConfigReader $configReader, array $customConfig)
+    /**
+     * @param ConfigReader $configReader
+     * @param array $customEnvironmentVariables
+     */
+    public function __construct(ConfigReader $configReader, array $customEnvironmentVariables)
     {
         $this->configReader = $configReader;
-        $this->customConfig = $customConfig;
+        $this->customEnvironmentVariables = $customEnvironmentVariables['plugins'];
     }
 
     /**
@@ -32,14 +36,10 @@ class Reader implements ConfigReader
     {
         $result = $this->configReader->getByPluginName($pluginName, $shop);
 
-        if (isset($result['paypalUsername'])) {
-            $result['paypalUsername'] = $this->customConfig['paypalUsername'];
+        if (!$this->customEnvironmentVariables[$pluginName]) {
+            return $result;
         }
 
-        if (isset($result['paypalPassword'])) {
-            $result['paypalPassword'] = $this->customConfig['paypalPassword'];
-        }
-
-        return $result;
+        return array_merge($result, $this->customEnvironmentVariables[$pluginName]);
     }
 }

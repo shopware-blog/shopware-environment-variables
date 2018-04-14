@@ -24,10 +24,16 @@ You have to add the following lines to your config.php:
 <?php return [
     'db' => [...],
     'custom' =>
-        [
-            'paypalUsername' => getenv('paypalUsername'),
-            'paypalPassword' => getenv('paypalPassword'),
-        ],
+            [
+                'plugins' =>
+                    [
+                        'SwagPaymentPaypal' => [
+                            'paypalUsername' => getenv('paypalUsername'),
+                            'paypalPassword' => getenv('paypalPassword'),
+                        ],
+                    ],
+    
+            ],
 ];
 ```
 
