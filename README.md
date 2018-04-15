@@ -22,18 +22,25 @@ You have to add the following lines to your config.php:
 
 ```php
 <?php return [
-    'db' => [...],
-    'custom' =>
-            [
-                'plugins' =>
-                    [
-                        'SwagPaymentPaypal' => [
-                            'paypalUsername' => getenv('paypalUsername'),
-                            'paypalPassword' => getenv('paypalPassword'),
-                        ],
-                    ],
-    
-            ],
+   'db' => [...],
+   'custom' =>
+           [
+               'plugins' =>
+                   [
+                       'SwagPaymentPaypal' => [
+                           'paypalUsername' => getenv('paypalUsername'),
+                           'paypalPassword' => getenv('paypalPassword'),
+                       ],
+                   ],
+               'config' => [
+                   1 => [
+                       'mailer_mailer' => 'test123'
+                   ],
+                   2 => [
+                       'mailer_mailer' => '321test'
+                   ],
+               ],
+           ],
 ];
 ```
 
