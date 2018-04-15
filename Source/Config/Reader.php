@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace ShopwareEnvironmentVariables;
+namespace ShopwareEnvironmentVariables\Source\Config;
 
 use Shopware\Components\Plugin\ConfigReader;
 use Shopware\Models\Shop\Shop;

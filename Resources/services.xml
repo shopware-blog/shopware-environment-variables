@@ -6,11 +6,18 @@
         xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
 >
     <services>
-        <service id="shopware_environment_variables.config_reader"
-                 class="ShopwareEnvironmentVariables\Reader"
+        <service id="shopware_environment_variables.source.config_reader"
+                 class="ShopwareEnvironmentVariables\Source\Config\Reader"
                  decorates="shopware.plugin.config_reader"
                  public="false">
-            <argument type="service" id="shopware_environment_variables.config_reader.inner"/>
+            <argument type="service" id="shopware_environment_variables.source.config_reader.inner"/>
+            <argument>%shopware.custom%</argument>
+        </service>
+        <service class="ShopwareEnvironmentVariables\Source\Commands\ExportSettingsCommand"
+                 id="shopware_environment_variables.source.commands.export_settings_command">
+            <tag name="console.command"/>
+        </service>
+        <service class="ShopwareEnvironmentVariables\Source\Config\Factory" id="config_factory">
             <argument>%shopware.custom%</argument>
         </service>
     </services>
