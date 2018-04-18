@@ -26,6 +26,6 @@ class Config extends \Shopware_Components_Config
 
     private function getShopId(): int
     {
-        return 1;
+        return $this->_shop !== null ? $this->_shop->getId() : 1;
     }
 }

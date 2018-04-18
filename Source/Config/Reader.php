@@ -35,11 +35,12 @@ class Reader implements ConfigReader
     public function getByPluginName($pluginName, Shop $shop = null): array
     {
         $result = $this->configReader->getByPluginName($pluginName, $shop);
+        $shopId = $shop !== null ? $shop->getId() : 1;
 
-        if (!$this->customEnvironmentVariables[$pluginName]) {
+        if (!$this->customEnvironmentVariables[$shopId][$pluginName]) {
             return $result;
         }
 
-        return array_merge($result, $this->customEnvironmentVariables[$pluginName]);
+        return array_merge($result, $this->customEnvironmentVariables[$shopId][$pluginName]);
     }
 }

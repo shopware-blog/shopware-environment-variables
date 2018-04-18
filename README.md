@@ -27,17 +27,25 @@ You have to add the following lines to your config.php:
            [
                'plugins' =>
                    [
-                       'SwagPaymentPaypal' => [
-                           'paypalUsername' => getenv('paypalUsername'),
-                           'paypalPassword' => getenv('paypalPassword'),
+                       1 => [
+                           'SwagPaymentPaypal' => [
+                               'paypalUsername' => '1' . getenv('paypalUsername'),
+                               'paypalPassword' => '1' . getenv('paypalPassword'),
+                           ],
+                       ],
+                       2 => [
+                           'SwagPaymentPaypal' => [
+                               'paypalUsername' => '2' . getenv('paypalUsername'),
+                               'paypalPassword' => '2' . getenv('paypalPassword'),
+                           ],
                        ],
                    ],
                'config' => [
                    1 => [
-                       'mailer_mailer' => 'test123'
+                       'mailer_mailer' => 'test123',
                    ],
                    2 => [
-                       'mailer_mailer' => '321test'
+                       'mailer_mailer' => '321test',
                    ],
                ],
            ],

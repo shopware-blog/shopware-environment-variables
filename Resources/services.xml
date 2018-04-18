@@ -17,8 +17,16 @@
                  id="shopware_environment_variables.source.commands.export_settings_command">
             <tag name="console.command"/>
         </service>
+
         <service class="ShopwareEnvironmentVariables\Source\Config\Factory" id="config_factory">
             <argument>%shopware.custom%</argument>
+        </service>
+
+        <service id="config" class="Shopware_Components_Config">
+            <factory service="config_factory" method="factory" />
+            <argument type="service" id="cache" />
+            <argument type="service" id="db" on-invalid="ignore"/>
+            <argument>%shopware.config%</argument>
         </service>
     </services>
 </container>

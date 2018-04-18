@@ -2,7 +2,6 @@
 
 namespace ShopwareEnvironmentVariables\Source\Config;
 
-use Shopware\Bundle\StoreFrontBundle\Service\Core\ContextService;
 use Shopware\Components\DependencyInjection\Bridge\Config as ShopwareConfigFactory;
 
 class Factory extends ShopwareConfigFactory
