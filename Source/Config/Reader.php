@@ -37,7 +37,7 @@ class Reader implements ConfigReader
         $result = $this->configReader->getByPluginName($pluginName, $shop);
         $shopId = $shop !== null ? $shop->getId() : 1;
 
-        if (!$this->customEnvironmentVariables[$shopId][$pluginName]) {
+        if (!isset($this->customEnvironmentVariables[$shopId][$pluginName])) {
             return $result;
         }
 
