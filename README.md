@@ -1,24 +1,11 @@
 # Use Environment Variables to override Plugin Configurations
 
-In multi stage environments it is usual to have different plugin configurations for dev, stage and live systems. 
+In multi stage environments it is usual to have different basic and plugin configurations for dev, stage and live systems. 
 
-This plugin is a small proof of concept how to overwrite plugin configurations with environment variables. 
+This plugin can override basic and plugin configurations with environment variables or constants. 
 
 # Integration
-We use ShopwarePaypal as an example plugin for your proof of concept. For the activation we need three steps. 
-
-# .htaccess 
-
-We have to add our environment variables to the .htaccess or vhost configuration file. 
-
-```apacheconfig
-SetEnv paypalUsername EnvPayPalUsername
-SetEnv paypalPassword EnvPaypalPassword
-```
-
-# config.php
-After creating our environment variables we should make them available via the dependency injection container. 
-You have to add the following lines to your config.php:
+We use ShopwarePaypal as an example plugin. Below you can see an example config.php which overrides some plugin settings and basic configuration. 
 
 ```php
 <?php return [
@@ -51,12 +38,3 @@ You have to add the following lines to your config.php:
            ],
 ];
 ```
-
-With this addition our environment variables are available as parameter in the %shopware.custom% array. 
-
-# Plugin
-In the last step we can install the ShopwareEnvironmentVariables plugin and extend our mapping in: [Reader](https://github.com/teiling88/shopware-environment-variables/blob/master/Reader.php#L35)
-
-# Conclusion
-
-This is a very small proof of concept how to overwrite plugin configurations by environment variables. **Nothing more**. 
