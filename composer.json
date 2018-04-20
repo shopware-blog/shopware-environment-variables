@@ -1,0 +1,11 @@
+{
+    "name": "shopware-blog/shopware-environment-variables",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Eiling",
+            "email": "teiling88@gmail.com"
+        }
+    ],
+    "require": {}
+}
