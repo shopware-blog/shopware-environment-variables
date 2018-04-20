@@ -1,11 +1,14 @@
 {
-    "name": "shopware-blog/shopware-environment-variables",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Thomas Eiling",
-            "email": "teiling88@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "shopware-blog/shopware-environment-variables",
+  "license": "MIT",
+  "extra": {
+    "installer-name": "ShopwareEnvironmentVariables"
+  },
+  "authors": [
+    {
+      "name": "Thomas Eiling",
+      "email": "teiling88@gmail.com"
+    }
+  ],
+  "require": {}
 }
