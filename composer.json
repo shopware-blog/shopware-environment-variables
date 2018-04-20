@@ -1,6 +1,8 @@
 {
   "name": "shopware-blog/shopware-environment-variables",
   "license": "MIT",
+  "description": "a small shopware plugin to use env variables",
+  "type": "shopware-plugin",
   "extra": {
     "installer-name": "ShopwareEnvironmentVariables"
   },
