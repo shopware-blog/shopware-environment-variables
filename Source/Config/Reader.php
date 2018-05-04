@@ -24,7 +24,10 @@ class Reader implements ConfigReader
     public function __construct(ConfigReader $configReader, array $customEnvironmentVariables)
     {
         $this->configReader = $configReader;
-        $this->customEnvironmentVariables = $customEnvironmentVariables['plugins'];
+        $this->customEnvironmentVariables = [];
+        if (isset($customEnvironmentVariables['plugins'])) {
+            $this->customEnvironmentVariables = $customEnvironmentVariables['plugins'];
+        }
     }
 
     /**

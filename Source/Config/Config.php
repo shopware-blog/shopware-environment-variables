@@ -12,7 +12,10 @@ class Config extends \Shopware_Components_Config
     public function __construct(array $config)
     {
         parent::__construct($config);
-        $this->customConfig = $config['custom']['config'];
+        $this->customConfig = [];
+        if (isset($config['custom']['config'])) {
+            $this->customConfig = $config['custom']['config'];
+        }
     }
 
     public function offsetGet($name)
