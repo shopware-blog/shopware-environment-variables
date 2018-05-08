@@ -1,3 +1,5 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/shopware-blog/shopware-environment-variables/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/shopware-blog/shopware-environment-variables/?branch=master)
+
 # Use Environment Variables to override Plugin Configurations
 
 In multi stage environments it is usual to have different basic and plugin configurations for dev, stage and live systems. 
