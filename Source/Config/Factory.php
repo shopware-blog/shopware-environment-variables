@@ -3,6 +3,7 @@
 namespace ShopwareEnvironmentVariables\Source\Config;
 
 use Shopware\Components\DependencyInjection\Bridge\Config as ShopwareConfigFactory;
+use ShopwareEnvironmentVariables\Source\Helper\ShopProvider;
 
 class Factory extends ShopwareConfigFactory
 {
@@ -11,9 +12,19 @@ class Factory extends ShopwareConfigFactory
      */
     private $customConfig;
 
-    public function __construct(array $customConfig = null)
+    /**
+     * @var ShopProvider
+     */
+    private $shopProvider;
+
+    /**
+     * @param ShopProvider $shopProvider
+     * @param array|null $customConfig
+     */
+    public function __construct(ShopProvider $shopProvider, array $customConfig = null)
     {
         $this->customConfig = $customConfig;
+        $this->shopProvider = $shopProvider;
     }
 
     /**
@@ -49,6 +60,6 @@ class Factory extends ShopwareConfigFactory
             $config['custom'] = $this->customConfig;
         }
 
-        return new Config($config);
+        return new Config($config, $this->shopProvider->getDefaultShopId());
     }
 }

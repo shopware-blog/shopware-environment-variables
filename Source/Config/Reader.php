@@ -4,6 +4,7 @@ namespace ShopwareEnvironmentVariables\Source\Config;
 
 use Shopware\Components\Plugin\ConfigReader;
 use Shopware\Models\Shop\Shop;
+use ShopwareEnvironmentVariables\Source\Helper\ShopProvider;
 
 class Reader implements ConfigReader
 {
@@ -18,16 +19,26 @@ class Reader implements ConfigReader
     private $customEnvironmentVariables;
 
     /**
+     * @var ShopProvider
+     */
+    private $shopProvider;
+
+    /**
      * @param ConfigReader $configReader
+     * @param ShopProvider $shopProvider
      * @param array $customEnvironmentVariables
      */
-    public function __construct(ConfigReader $configReader, array $customEnvironmentVariables)
-    {
+    public function __construct(
+        ConfigReader $configReader,
+        ShopProvider $shopProvider,
+        array $customEnvironmentVariables
+    ) {
         $this->configReader = $configReader;
         $this->customEnvironmentVariables = [];
         if (isset($customEnvironmentVariables['plugins'])) {
             $this->customEnvironmentVariables = $customEnvironmentVariables['plugins'];
         }
+        $this->shopProvider = $shopProvider;
     }
 
     /**
@@ -38,7 +49,7 @@ class Reader implements ConfigReader
     public function getByPluginName($pluginName, Shop $shop = null): array
     {
         $result = $this->configReader->getByPluginName($pluginName, $shop);
-        $shopId = $shop !== null ? $shop->getId() : 1;
+        $shopId = $shop !== null ? $shop->getId() : $this->shopProvider->getShopId();
 
         if (!isset($this->customEnvironmentVariables[$shopId][$pluginName])) {
             return $result;
