@@ -1,0 +1,1 @@
+INSERT INTO s_core_shops (id, main_id, name, title, position, host, base_path, base_url, hosts, secure, template_id, document_template_id, category_id, locale_id, currency_id, customer_group_id, fallback_id, customer_scope, `default`, active) VALUES (2, 1, 'Englisch', null, 0, null, null, '/en', '', 0, null, null, 3, 2, 1, 1, null, 0, 0, 1);

@@ -1,0 +1,21 @@
+paths:
+  - _dev-ops/common/actions
+
+const:
+  DB_USER: "app"
+  DB_PASSWORD: "app"
+  DB_HOST: "mysql"
+  DB_NAME: "shopware"
+  SW_HOST: "10.202.202.30"
+  SW-VERSION: "latest"
+
+dynamic:
+  USERKEY: echo "$(id -u):$(id -g)"
+  APP_ID: docker-compose ps -q app_server
+  MYSQL_MASTER_ID: docker-compose ps -q app_mysql_master
+  REDIS_ID: docker-compose ps -q app_redis
+
+environments:
+  docker:
+    paths:
+      - "_dev-ops/docker/actions"
