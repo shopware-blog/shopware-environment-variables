@@ -1,1 +1,13 @@
-/vendor/
+engine
+/.idea
+/.psh.yaml
+/build
+/shopware
+/vendor
+
+
+# dev-ops
+/_dev-ops/docker/containers/mysql-master/createuser.sh
+/_dev-ops/docker/containers/php7/createuser.sh
+/_dev-ops/docker/_volumes
+!_dev-ops/docker/_volumes/.gitkeep

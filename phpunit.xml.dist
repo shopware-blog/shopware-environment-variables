@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+        bootstrap="tests/Bootstrap.php"
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        strict="true"
+>
+    <php>
+        <const name="SHOPWARE_ENV" value="test"/>
+        <env name="SHOPWARE_ENV" value="test"/>
+        <const name="SHOPWARE_DIR" value="shopware/"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="default">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>Source</directory>
+            <directory>Subscriber</directory>
+            <directory>Bridge</directory>
+            <directory>Resources</directory>
+        </whitelist>
+    </filter>
+</phpunit>

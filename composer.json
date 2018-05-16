@@ -12,5 +12,13 @@
       "email": "teiling88@gmail.com"
     }
   ],
-  "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ShopwareEnvironmentVariables\\": "./",
+            "ShopwareEnvironmentVariablesTests\\": "tests/"
+        }
+    }
 }
