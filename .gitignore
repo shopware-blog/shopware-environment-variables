@@ -4,7 +4,9 @@ engine
 /build
 /shopware
 /vendor
-
+/tools
+/psh
+/.php_cs.cache
 
 # dev-ops
 /_dev-ops/docker/containers/mysql-master/createuser.sh

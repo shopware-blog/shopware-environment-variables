@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phive xmlns="https://phar.io/phive">
+  <phar name="php-cs-fixer" version="^2.12.2" installed="2.12.2" location="./tools/php-cs-fixer" copy="true"/>
+  <phar name="shopwarelabs/psh" version="^1.2.0" installed="1.2.0" location="psh" copy="true"/>
+  <phar name="phpstan" version="^0.10.1" installed="0.10.1" location="./tools/phpstan" copy="true"/>
+  <phar name="shopwarelabs/sw-cli-tools" version="^0.0.1" installed="0.0.1" location="./tools/sw" copy="true"/>
+</phive>

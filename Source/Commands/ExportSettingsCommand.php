@@ -40,7 +40,6 @@ class ExportSettingsCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $plugins = $this->connection
             ->fetchAll(
                 'SELECT name FROM s_core_plugins

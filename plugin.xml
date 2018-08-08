@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd"
+>
+    <label lang="de">Shopware Environment Variables</label>
+    <label lang="en">Shopware Environment Variables</label>
+
+    <version>0.2.2</version>
+    <author>shopware-blog</author>
+    <copyright>shopware blog</copyright>
+    <link>https://shopware.blog</link>
+    <compatibility minVersion="5.3.0"/>
+
+    <changelog version="0.0.1">
+        <changes lang="de">Erstveröffentlichung</changes>
+        <changes lang="en">First release</changes>
+    </changelog>
+</plugin>

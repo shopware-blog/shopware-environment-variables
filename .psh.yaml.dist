@@ -19,3 +19,6 @@ environments:
   docker:
     paths:
       - "_dev-ops/docker/actions"
+  package:
+    paths:
+      - "_dev-ops/package/actions"
