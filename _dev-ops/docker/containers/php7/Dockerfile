@@ -5,14 +5,12 @@ RUN apt-get update -qq && apt-get install -y -qq \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
         libcurl4-openssl-dev \
         software-properties-common  \
         libcurl3 curl \
         git \
         zip \
         unzip \
-        openjdk-7-jdk \
         inotify-tools
 
 RUN apt-get update -qq && apt-get install -y -qq \
