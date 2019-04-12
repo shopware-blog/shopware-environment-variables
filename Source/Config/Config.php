@@ -26,6 +26,19 @@ class Config extends \Shopware_Components_Config
         if (isset($config['custom']['config'])) {
             $this->customConfig = $config['custom']['config'];
         }
+
+        // support for Shopware()->Config()->getByNamespace('<pluginName>', '<configName>')
+        if (isset($config['custom']['plugins'])) {
+            foreach($config['custom']['plugins'] as $shopId => $pluginConfigs) {
+                foreach($pluginConfigs as $pluginName => $pluginConfigValues) {
+                    foreach($pluginConfigValues as $pluginConfigName => $pluginConfigValue) {
+                        $pluginConfigKey = $pluginName."::".$pluginConfigName;
+                        $this->customConfig[(int)$shopId][$pluginConfigKey] = $pluginConfigValue;
+                    }
+                }
+            }
+        }
+        
         $this->defaultShopId = $defaultShopId;
     }
 
