@@ -2,7 +2,9 @@
 
 namespace ShopwareEnvironmentVariables\Source\Config;
 
+use Doctrine\DBAL\Connection;
 use Shopware\Components\DependencyInjection\Bridge\Config as ShopwareConfigFactory;
+use Shopware\Components\ShopwareReleaseStruct;
 use ShopwareEnvironmentVariables\Source\Helper\ShopProvider;
 
 class Factory extends ShopwareConfigFactory
@@ -27,20 +29,11 @@ class Factory extends ShopwareConfigFactory
         $this->shopProvider = $shopProvider;
     }
 
-    /**
-     * the default value for $release is important to support shopware 5.3
-     *
-     * @param \Zend_Cache_Core $cache
-     * @param \Enlight_Components_Db_Adapter_Pdo_Mysql|null $db
-     * @param array $config
-     * @param \Shopware\Components\ShopwareReleaseStruct|null $release
-     * @return null|\Shopware_Components_Config
-     */
     public function factory(
         \Zend_Cache_Core $cache,
-        \Enlight_Components_Db_Adapter_Pdo_Mysql $db = null,
+        Connection $db = null,
         $config = [],
-        \Shopware\Components\ShopwareReleaseStruct $release = null
+        ShopwareReleaseStruct $release
     ) {
         if (!$db) {
             return null;
