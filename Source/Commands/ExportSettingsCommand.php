@@ -59,6 +59,18 @@ class ExportSettingsCommand extends Command
             }
         }
 
+        $configElements = $this->connection
+            ->fetchAll(
+                'SELECT name, value FROM s_core_config_elements'
+            );
+
+        foreach ($configElements as $element) {
+            foreach ($shopIds as $shopId) {
+                $value = $element['value'] ? unserialize($element['value'], [false]) : '';
+                $config['config'][(int) $shopId['id']][$element['name']] = $value;
+            }
+        }
+
         file_put_contents(
             __DIR__ . '/../../plugins_config.php',
             '<?php' . "\n\n" . var_export($config, true) . ';',
